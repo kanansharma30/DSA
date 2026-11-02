@@ -1,0 +1,29 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+
+        int currentSum = nums[0];
+        int maxSum = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+    }
+}
+//Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+//Output: 6
+// initially currentSum and maxSum = 0;
+
+//for i =1
+// nums[i] = 1
+
+// currentSum = Math.max(nums[i], currentSum + nums[i])
+//            = Math.max(1, -2 + 1)
+//            = Math.max(1, -1)
+//            = 1
+
+// maxSum = Math.max(maxSum, currentSum)
+//        = Math.max(-2, 1)
+//        = 1
+
